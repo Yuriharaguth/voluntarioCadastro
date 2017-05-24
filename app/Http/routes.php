@@ -21,6 +21,9 @@ Route::post('volunteer',['as' => 'volunteer.send', function(){
     return Request::all();
 }]);
 
+
+
+
 /*// definição sem o verbo HTTP
 Route::group(['prefix' => 'institucional'], function(){
 

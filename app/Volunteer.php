@@ -6,5 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Volunteer extends Model
 {
-    //
+    //apenas esses campos são aceitos pelo form
+    protected $fillable = ['name', 'phone', 'email'];
 }
