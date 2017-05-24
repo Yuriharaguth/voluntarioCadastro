@@ -7,4 +7,6 @@
     <p>{{$volunteer->name}}</p> 
     <p>{{$volunteer->email}}</p>
     <p>{{$volunteer->phone}}</p>
+
+    <a href="{{ route('volunteer.index') }}">Voltar</a>
 @endsection
