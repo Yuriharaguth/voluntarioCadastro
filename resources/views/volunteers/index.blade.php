@@ -11,6 +11,7 @@
                 <th>Nome</th>
                 <th>Email</th>
                 <th>Telefone</th>
+                <th>Deletar</th>
             </tr>
         </thead>
         <tbody>
@@ -19,6 +20,8 @@
                 <td><a href="{{ route('volunteer.show', $volunteer->id) }}">{{$volunteer->name}}</a></td>
                 <td>{{$volunteer->email}}</td>
                 <td>{{$volunteer->phone}}</td>
+                <td><a href="volunteer/{{ $volunteer->id }}" data-method="DELETE">Deletar</a> - 
+                    <a href="volunteer/{{ $volunteer->id }}/edit">Editar</a></td>
             </tr>
             @endforeach
         </tbody>

@@ -1,10 +1,4 @@
-@extends('layouts.master') <!-- nome da pasta, nome do arquivo -->
 
-@section('title','Form Voluntarios') <!-- section do cabecalho -->
-
-@section('container')
-     <div>
-        {!! Form::open(['route' => 'volunteer.send']) !!}
           
           <div class="form-group">
             {!! Form::label('name', 'Nome') !!}
@@ -23,8 +17,4 @@
       
            {!! Form::submit('Enviar', ['class' => 'btn btn-default']) !!}
 
-        {!! Form::close() !!}
-      </div>
-
-@endsection
 

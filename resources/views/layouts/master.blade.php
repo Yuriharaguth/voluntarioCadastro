@@ -28,6 +28,8 @@
     @section('script') <!-- pode ser substituido -->
         <script src="/js/jquery.min.js"></script>
         <script src="/js/bootstrap.min.js"></script>
+        <script> var laravel_token = '{{ csrf_token }}'; </script>
+        <script src="/js/restfulizer.js"></script>
     @show
 
   </body>

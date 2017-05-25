@@ -4,7 +4,7 @@
 
 @section('container')
      <div>
-        {!! Form::open(['route' => 'volunteer.store']) !!}
+        {!! Form::model($volunteer, ['route' => ['volunteer.update', $volunteer->id], 'method' => 'PUT' ]) !!}
           
           @include('volunteers.form')
 
