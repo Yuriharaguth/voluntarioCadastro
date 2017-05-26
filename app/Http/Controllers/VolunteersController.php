@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\VolunteerRequest;
 
 use App\Volunteer; // temos que definir o caminho
 
@@ -24,8 +25,9 @@ class VolunteersController extends Controller
         return view('volunteers.create');
     }
 
-    public function store(Request $request)
+    public function store(VolunteerRequest $request) //recebendo um REQUEST do tipo Volunter ele ja vem validado
     {
+        //$this->validate($request,Volunteer::$rules); forma de validar
         Volunteer::create($request->all());
         $volunteers =  Volunteer::all();
         return view('volunteers.index', compact('volunteers'));
@@ -44,8 +46,9 @@ class VolunteersController extends Controller
     }
 
 
-    public function update(Request $request, $id)
+    public function update(VolunteerRequest $request, $id) //recebendo um REQUEST do tipo Volunter ele ja vem validado
     {
+        //$this->validate($request,Volunteer::$rules); forma de validar
         $volunteer = Volunteer::findOrFail($id);
         $volunteer->update($request->all());
         return redirect()->route('volunteer.index');

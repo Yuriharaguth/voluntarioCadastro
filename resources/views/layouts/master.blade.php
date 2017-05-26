@@ -21,6 +21,16 @@
 
     <div class="container">
 
+     @if (count($errors) > 0) <!-- isso só esta sendo renderezado quando entra no IF -->
+          <div class="alert alert-danger">
+              <ul>
+                  @foreach ($errors->all() as $error)
+                      <li>{{ $error }}</li>
+                  @endforeach
+              </ul>
+          </div>
+      @endif
+
         @yield('container') <!-- sera substituido -->
 
     </div><!-- /.container -->
@@ -28,8 +38,7 @@
     @section('script') <!-- pode ser substituido -->
         <script src="/js/jquery.min.js"></script>
         <script src="/js/bootstrap.min.js"></script>
-        <script> var laravel_token = '{{ csrf_token }}'; </script>
-        <script src="/js/restfulizer.js"></script>
+
     @show
 
   </body>
