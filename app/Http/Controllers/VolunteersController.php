@@ -14,7 +14,8 @@ class VolunteersController extends Controller
 {
 
     public function index() {
-        $volunteers =  Volunteer::all();
+        $volunteers =  Volunteer::simplePaginate(15);
+       // $volunteers =  Volunteer::paginate(15);
         //compact -> esta enviado em forma de array
         return view('volunteers.index', compact('volunteers'));
     }

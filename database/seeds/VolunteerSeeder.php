@@ -11,6 +11,6 @@ class VolunteerSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Volunteer::class, 30)->create();
+        factory(App\Volunteer::class, 80)->create();
     }
 }
