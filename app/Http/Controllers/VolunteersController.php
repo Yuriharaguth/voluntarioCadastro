@@ -13,50 +13,43 @@ use App\Volunteer; // temos que definir o caminho
 class VolunteersController extends Controller
 {
 
-    public function index()
-    {
+    public function index() {
         $volunteers =  Volunteer::all();
         //compact -> esta enviado em forma de array
         return view('volunteers.index', compact('volunteers'));
     }
 
-    public function create()
-    {
+    public function create() {
         return view('volunteers.create');
     }
 
-    public function store(VolunteerRequest $request) //recebendo um REQUEST do tipo Volunter ele ja vem validado
-    {
+    public function store(VolunteerRequest $request) { //recebendo um REQUEST do tipo Volunter ele ja vem validado
         //$this->validate($request,Volunteer::$rules); forma de validar
         Volunteer::create($request->all());
         $volunteers =  Volunteer::all();
         return view('volunteers.index', compact('volunteers'));
     }
 
-    public function show($id)
-    {
-        $volunteer = Volunteer::findOrFail($id);
+    /*
+    **    Para a utilização desta forma do metodo Store, é necessario uma configuração 
+    **    no arquivo RouteServiceProvider que fica no App -> Providers
+    */
+    public function show(Volunteer $volunteer) {
         return view('volunteers.show', compact('volunteer'));
     }
 
-    public function edit($id)
-    {
-        $volunteer = Volunteer::findOrFail($id);
+    public function edit(Volunteer $volunteer) {
         return view('volunteers.edit', compact('volunteer'));
     }
 
 
-    public function update(VolunteerRequest $request, $id) //recebendo um REQUEST do tipo Volunter ele ja vem validado
-    {
+    public function update(VolunteerRequest $request, Volunteer $volunteer) { //recebendo um REQUEST do tipo Volunter ele ja vem validado
         //$this->validate($request,Volunteer::$rules); forma de validar
-        $volunteer = Volunteer::findOrFail($id);
         $volunteer->update($request->all());
         return redirect()->route('volunteer.index');
     }
 
-    public function destroy($id)
-    {
-        $volunteer = Volunteer::findOrFail($id);
+    public function destroy(Volunteer $volunteer) {
         $volunteer->delete();
         return redirect()->route('volunteer.index');
     }
