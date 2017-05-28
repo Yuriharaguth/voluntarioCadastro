@@ -17,6 +17,5 @@ class Intitution extends Model
     hasMany        possui varios
     belongsTo      pertence a 
     belongsToMany  pertence a muitos
-
 */
 }

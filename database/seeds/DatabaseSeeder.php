@@ -24,7 +24,7 @@ class DatabaseSeeder extends Seeder
         $this->call(IntitutionSeeder::class);
         $this->call(VolunteerSeeder::class);
         $this->call(CauseSeeder::class);
-        //$this->call(CauseVolunteerSeeder::class);
+        $this->call(CauseVolunteer::class);
         
         DB::statement('SET FOREIGN_KEY_CHECKS=1;');
         Model::reguard();

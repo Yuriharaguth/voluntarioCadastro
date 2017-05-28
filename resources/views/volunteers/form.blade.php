@@ -14,6 +14,12 @@
             {!! Form::label('phone', 'Telefone') !!}
             {!! Form::text('phone', null, ['class' => 'form-control', 'placeholder' => 'Telefone']) !!}
           </div>
+
+
+          <div class="form-group">
+              {!! Form::label('intitution_id', 'Intituição') !!}
+              {!! Form::select('intitution_id', $intitutions, null, ['class' => 'form-control', 'placeholder' => 'Selecione uma Instituição...']) !!}
+          </div>
       
            {!! Form::submit('Enviar', ['class' => 'btn btn-default']) !!}
 

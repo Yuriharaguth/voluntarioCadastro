@@ -13,6 +13,11 @@ class Volunteer extends Model
         return $this->belongsTo('App\Intitution');
     }
 
+    public function causes(){
+        return $this->belongsToMany('App\Cause');
+    }
+
+//NÃO ESTA SENDO USADO MAIS
     public static $rules = [
         'name'  => 'required',
         'email' => 'required|email'

@@ -15,7 +15,7 @@ class VolunteersController extends Controller
 
     public function index() {
         $volunteers =  Volunteer::simplePaginate(15);
-       // $volunteers =  Volunteer::paginate(15);
+        // $volunteers =  Volunteer::paginate(15);
         //compact -> esta enviado em forma de array
         return view('volunteers.index', compact('volunteers'));
     }
@@ -27,7 +27,7 @@ class VolunteersController extends Controller
     public function store(VolunteerRequest $request) { //recebendo um REQUEST do tipo Volunter ele ja vem validado
         //$this->validate($request,Volunteer::$rules); forma de validar
         Volunteer::create($request->all());
-        $volunteers =  Volunteer::simplePaginate(15);
+        $volunteers =  Volunteer::all();
         return view('volunteers.index', compact('volunteers'));
     }
 
