@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class VolunteerSeeder extends Seeder
+class CauseSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,6 +11,6 @@ class VolunteerSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Volunteer::class, 50)->create();
+        //
     }
 }

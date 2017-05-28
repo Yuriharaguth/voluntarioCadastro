@@ -27,7 +27,7 @@ class VolunteersController extends Controller
     public function store(VolunteerRequest $request) { //recebendo um REQUEST do tipo Volunter ele ja vem validado
         //$this->validate($request,Volunteer::$rules); forma de validar
         Volunteer::create($request->all());
-        $volunteers =  Volunteer::all();
+        $volunteers =  Volunteer::simplePaginate(15);
         return view('volunteers.index', compact('volunteers'));
     }
 
